@@ -2,15 +2,47 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
+const containerVariants = {
+  // hidden / initial
+  hidden: {
+    opacity: 0,
+    x: '100vw',
+  },
+  // visible / animate
+  // transition is inside visible. So don't write on your element
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      type: 'spring',
+      delay: 0.5,
+      stiffness: 120,
+    },
+  },
+};
+
+const nextVariants = {
+  hidden: {
+    x: '-100vw',
+  },
+  visible: {
+    x: 0,
+    transition: {
+      type: 'spring',
+      stiffness: 120,
+    },
+  },
+};
+
 const Base = ({ addBase, pizza }) => {
   const bases = ['Classic', 'Thin & Crispy', 'Thick Crust'];
 
   return (
     <motion.div
       className="base container"
-      initial={{ x: '100vw' }}
-      animate={{ x: 0 }}
-      transition={{ type: 'spring', delay: 0.5, stiffness: 120 }}
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
     >
       <h3>Step 1: Choose Your Base</h3>
       <ul>
@@ -34,12 +66,8 @@ const Base = ({ addBase, pizza }) => {
       </ul>
 
       {pizza.base && (
-        <motion.div
-          className="next"
-          initial={{ x: '-100vw' }}
-          animate={{ x: 0 }}
-          transition={{ type: 'spring', stiffness: 120 }}
-        >
+        // initial & animate don't need to write in down below, because they already inherit from the parent element
+        <motion.div className="next" variants={nextVariants}>
           <Link to="/toppings">
             <motion.button
               whileHover={{
