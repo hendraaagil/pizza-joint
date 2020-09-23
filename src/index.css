@@ -22,7 +22,7 @@ body {
   background: radial-gradient(
     circle,
     rgba(0, 49, 155, 1) 0%,
-    rgb(0, 57, 180) 100%
+    rgba(0, 65, 204, 1) 100%
   );
   overflow: hidden;
 }
