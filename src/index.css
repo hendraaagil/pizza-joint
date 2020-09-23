@@ -161,3 +161,7 @@ li span.active::before {
   background: #fff;
   border-radius: 50%;
 }
+
+.loader ~ div {
+  cursor: pointer;
+}
