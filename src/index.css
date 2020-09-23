@@ -148,12 +148,16 @@ li span.active::before {
   border-color: #444;
 }
 
-/* .modal button:hover {
-  color: #fff;
-  background-color: #444;
-} */
-
 .modal p {
   font-weight: bold;
   color: #444;
+}
+
+/* Loader */
+.loader {
+  margin: 40px auto;
+  width: 10px;
+  height: 10px;
+  background: #fff;
+  border-radius: 50%;
 }
