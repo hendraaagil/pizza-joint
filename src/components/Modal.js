@@ -37,7 +37,7 @@ const buttonVariants = {
   },
 };
 
-const Modal = ({ showModal, setShowModal }) => {
+const Modal = ({ showModal, setPizza }) => {
   return (
     <AnimatePresence exitBeforeEnter>
       {showModal && (
@@ -51,7 +51,11 @@ const Modal = ({ showModal, setShowModal }) => {
           <motion.div className="modal" variants={modalVariants}>
             <p>Want to make another pizza?</p>
             <Link to="/">
-              <motion.button variants={buttonVariants} whileHover="hover">
+              <motion.button
+                variants={buttonVariants}
+                whileHover="hover"
+                onClick={() => setPizza({ base: '', toppings: [] })}
+              >
                 Start Again
               </motion.button>
             </Link>

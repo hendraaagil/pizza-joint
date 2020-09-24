@@ -30,7 +30,7 @@ function App() {
   return (
     <>
       <Header />
-      <Modal showModal={showModal} setShowModal={setShowModal} />
+      <Modal showModal={showModal} setPizza={setPizza} />
       <AnimatePresence
         exitBeforeEnter
         onExitComplete={() => setShowModal(false)}
